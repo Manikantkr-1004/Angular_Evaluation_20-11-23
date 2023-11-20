@@ -1,0 +1,19 @@
+<form (submit)="onSubmit($event)">
+  <input (input)="title($event)" type="text" name="title" id="title" placeholder="Enter Title" required /><br><br>
+
+  <div>
+    <label for="completed">Task completed? </label>
+    <input (input)="status($event)" type="checkbox" name="completed" id="completed" /><br><br>
+  </div>
+
+  <button type="submit">ADD TODO</button>
+</form>
+<br><br><br>
+
+<div id="parent">
+  <div *ngFor="let item of todoData">
+    <h3>Task: {{item.completed? "Completed":"Pending"}}</h3>
+    <h3>{{item.title}}</h3>
+    <button (click)="delTodo(item.id)">Delete</button>
+  </div>
+</div>
